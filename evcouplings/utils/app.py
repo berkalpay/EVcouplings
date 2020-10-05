@@ -446,11 +446,6 @@ def run(**kwargs):
     # verify that global prefix makes sense
     pipeline.verify_prefix(verify_subdir=False, **config)
 
-    # for convenience, turn on N_eff computation if we run alignment,
-    # but not the couplings stage
-    if "align" in config["stages"] and "couplings" not in config["stages"]:
-        config["align"]["compute_num_effective_seqs"] = True
-
     # unroll batch jobs into individual pipeline jobs
     sub_configs = unroll_config(config)
 
